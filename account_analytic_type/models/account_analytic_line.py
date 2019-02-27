@@ -18,6 +18,10 @@ class AccountAnalyticLine(models.Model):
         related="analytic_type_id.type",
         readonly=True,
     )
+    category = fields.Selection(
+        [('plan', 'Plan'),
+         ('actual', 'Actual')],
+    )
 
 
     @api.onchange('general_account_id')

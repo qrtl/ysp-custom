@@ -7,7 +7,8 @@
         <field name="inherit_id" ref="analytic.view_account_analytic_line_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='account_id']" position="after">
-                <field name="analytic_type_id" readonly="1"/>
+                <field name="analytic_type_id" readonly="0"/>
+                <field name="category"/>
             </xpath>
         </field>
     </record>
@@ -20,18 +21,19 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date']" position="after">
                 <field name="analytic_type_id" readonly="1"/>
+                <field name="category"/>
             </xpath>
         </field>
     </record>
 
-    <record id="view_account_analytic_line_pivot" model="ir.ui.view">
-        <field name="name">account.analytic.line.pivot</field>
+    <record id="view_account_analytic_line_type_pivot" model="ir.ui.view">
+        <field name="name">account.analytic.line.type.pivot</field>
         <field name="model">account.analytic.line</field>
         <field eval="15" name="priority"/>
         <field name="arch" type="xml">
             <pivot string="Analytic Entries" >
-                <field name="partner_id" type="row"/>
                 <field name="account_id" type="row"/>
+                <field name="category" type="row"/>
                 <field name="date" interval="month" type="col"/>
                 <field name="analytic_type_id" type="col"/>
                 <field name="amount" type="measure"/>
@@ -52,6 +54,9 @@
                 <filter string="Logistics" name="logistics" domain="[('related_analytic_type','=','logistics')]"/>
                 <filter string="Expenses" name="expenses" domain="[('related_analytic_type','=','expenses')]"/>
                 <filter string="Other" name="other" domain="[('related_analytic_type','=','other')]"/>
+                <separator/>
+                <filter string="Plan" name="plan" domain="[('category','=','plan')]"/>
+                <filter string="Actual" name="actual" domain="[('category','=','actual')]"/>
                 <separator/>
                 <filter string="Current Month" name="current_month"
                         domain="[('date','&gt;=',context_today().strftime('%%Y-%%m-01')),('date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01'))]"/>
