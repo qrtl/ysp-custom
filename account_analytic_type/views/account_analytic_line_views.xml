@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account_analytic_line_form_inherit" model="ir.ui.view">
+        <field name="name">account.analytic.line.form</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='account_id']" position="after">
+                <field name="analytic_type_id" readonly="0"/>
+                <field name="category"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_analytic_line_tree" model="ir.ui.view">
+        <field name="name">account.analytic.line.tree</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id"
+               ref="analytic.view_account_analytic_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="analytic_type_id" readonly="1"/>
+                <field name="category"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_analytic_line_type_pivot" model="ir.ui.view">
+        <field name="name">account.analytic.line.type.pivot</field>
+        <field name="model">account.analytic.line</field>
+        <field eval="15" name="priority"/>
+        <field name="arch" type="xml">
+            <pivot string="Analytic Entries" >
+                <field name="account_id" type="row"/>
+                <field name="category" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="analytic_type_id" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_account_analytic_line_filter" model="ir.ui.view">
+        <field name="name">account.analytic.line.select</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_line_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <filter string="Sales" name="sales" domain="[('related_analytic_type','=','sales')]"/>
+                <filter string="Labour" name="labour" domain="[('related_analytic_type','=','labour')]"/>
+                <filter string="Packaging Materials" name="pack_mat" domain="[('related_analytic_type','=','pack_mat')]"/>
+                <filter string="Outsourcing" name="outsourcing" domain="[('related_analytic_type','=','outsourcing')]"/>
+                <filter string="Logistics" name="logistics" domain="[('related_analytic_type','=','logistics')]"/>
+                <filter string="Expenses" name="expenses" domain="[('related_analytic_type','=','expenses')]"/>
+                <filter string="Other" name="other" domain="[('related_analytic_type','=','other')]"/>
+                <separator/>
+                <filter string="Plan" name="plan" domain="[('category','=','plan')]"/>
+                <filter string="Actual" name="actual" domain="[('category','=','actual')]"/>
+                <separator/>
+                <filter string="Current Month" name="current_month"
+                        domain="[('date','&gt;=',context_today().strftime('%%Y-%%m-01')),('date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01'))]"/>
+                <filter string="Previous Month" name="prev_month"
+                        domain="[('date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('date','&lt;',context_today().strftime('%%Y-%%m-01'))]"/>
+                <filter string="Past 90 days" name="past_90_days"
+                        domain="[('date','&gt;=',(context_today()-relativedelta(days=90)).strftime('%%Y-%%m-%%d'))]"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="analytic_type_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window"
+            id="analytic.account_analytic_line_action_entries">
+        <field name="context">{'search_default_current_month': 1}</field>
+    </record>
+
+</odoo>
