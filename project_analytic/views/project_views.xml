@@ -6,25 +6,48 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='settings']" position="after">
-                <page name="plans" string="Plans">
+            <xpath expr="//page[@name='settings']" position="before">
+                <page name="analytic_lines" string="Analytic Lines">
                     <group>
-                        <field name="analytic_line_ids" nolabel="1">
-                            <tree
-                                string="Analytic Lines"
-                                editable="bottom"
-                            >
-                                <field name="date"/>
-                                <field name="analytic_type_id"/>
-                                <field name="category"/>
-                                <field name="name"/>
-                                <field name="account_id"/>
-                                <field name="currency_id" invisible="1"/>
-                                <field name="company_id" groups="base.group_multi_company"/>
-                                <field name="unit_amount" sum="Quantity"/>
-                                <field name="amount" sum="Total"/>
-                            </tree>
-                        </field>
+                        <group string="Plans" name="plans">
+                            <field name="analytic_line_plan_ids" nolabel="1" context="{'default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                                <tree
+                                    string="Analytic Lines (Plan)"
+                                    editable="bottom"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type_id"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                    <field name="unit_amount" invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Actuals" name="actuals">
+                            <field name="analytic_line_actual_ids" nolabel="1" options="{'no_open':True}">
+                                <tree
+                                    string="Analytic Lines (Actual)"
+                                    create="false"
+                                    delete="false"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type_id"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                    <field name="unit_amount"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
                     </group>
                 </page>
             </xpath>
