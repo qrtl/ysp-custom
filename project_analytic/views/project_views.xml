@@ -12,7 +12,7 @@
                         <group string="Sales (Plan)" name="plan_sales">
                             <field name="analytic_line_plan_sales_ids" nolabel="1" context="{'default_analytic_type':'sales','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
-                                    string="Analytic Lines (Plan)"
+                                    string="Sales (Plan)"
                                     editable="bottom"
                                     decoration-warning="(amount &lt; 0.0)"
                                 >
@@ -28,9 +28,184 @@
                             </field>
                         </group>
                         <group string="Sales (Actual)" name="actual_sales">
-                            <field name="analytic_line_actual_sales_ids" nolabel="1" options="{'no_open':True}">
+                            <field name="analytic_line_actual_sales_ids" nolabel="1">
                                 <tree
-                                    string="Analytic Lines (Actual)"
+                                    string="Sales (Actual)"
+                                    create="false"
+                                    delete="false"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Labour (Plan)" name="plan_labour">
+                            <field name="analytic_line_plan_labour_ids" nolabel="1" context="{'default_analytic_type':'labour','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                                <tree
+                                    string="Labour (Plan)"
+                                    editable="bottom"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type" invisible="1"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount" invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Labour (Actual)" name="actual_labour">
+                            <field name="analytic_line_actual_labour_ids" nolabel="1">
+                                <tree
+                                    string="Labour (Actual)"
+                                    create="false"
+                                    delete="false"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Packaging Materials (Plan)" name="plan_pack_mat">
+                            <field name="analytic_line_plan_pack_mat_ids" nolabel="1" context="{'default_analytic_type':'pack_mat','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                                <tree
+                                    string="Packaging Materials (Plan)"
+                                    editable="bottom"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type" invisible="1"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount" invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Packaging Materials (Actual)" name="actual_pack_mat">
+                            <field name="analytic_line_actual_pack_mat_ids" nolabel="1">
+                                <tree
+                                    string="Packaging Materials (Actual)"
+                                    create="false"
+                                    delete="false"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Outsourcing (Plan)" name="plan_outsourcing">
+                            <field name="analytic_line_plan_outsourcing_ids" nolabel="1" context="{'default_analytic_type':'outsourcing','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                                <tree
+                                    string="Outsourcing (Plan)"
+                                    editable="bottom"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type" invisible="1"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount" invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Outsourcing (Actual)" name="actual_outsourcing">
+                            <field name="analytic_line_actual_outsourcing_ids" nolabel="1">
+                                <tree
+                                    string="Outsourcing (Actual)"
+                                    create="false"
+                                    delete="false"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Logistics (Plan)" name="plan_logistics">
+                            <field name="analytic_line_plan_logistics_ids" nolabel="1" context="{'default_analytic_type':'logistics','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                                <tree
+                                    string="Logistics (Plan)"
+                                    editable="bottom"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type" invisible="1"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount" invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Logistics (Actual)" name="actual_logistics">
+                            <field name="analytic_line_actual_logistics_ids" nolabel="1">
+                                <tree
+                                    string="Logistics (Actual)"
+                                    create="false"
+                                    delete="false"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Expenses (Plan)" name="plan_expenses">
+                            <field name="analytic_line_plan_expenses_ids" nolabel="1" context="{'default_analytic_type':'expenses','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                                <tree
+                                    string="Expenses (Plan)"
+                                    editable="bottom"
+                                    decoration-warning="(amount &lt; 0.0)"
+                                >
+                                    <field name="date"/>
+                                    <field name="analytic_type" invisible="1"/>
+                                    <field name="category" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="unit_amount" invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Expenses (Actual)" name="actual_expenses">
+                            <field name="analytic_line_actual_logistics_ids" nolabel="1">
+                                <tree
+                                    string="Expenses (Actual)"
                                     create="false"
                                     delete="false"
                                     decoration-warning="(amount &lt; 0.0)"
