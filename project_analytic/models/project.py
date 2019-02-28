@@ -7,10 +7,15 @@ from odoo import models, fields, api
 class Project(models.Model):
     _inherit = 'project.project'
 
-
-    analytic_line_ids = fields.One2many(
+    analytic_line_plan_ids = fields.One2many(
         'account.analytic.line',
         'analytic_project_id',
-        # domain="([('category', '=', 'plan')])",
-        string='Analytic Lines',
+        domain=[('category', '=', 'plan')],
+        string='Analytic Lines (Plan)',
+    )
+    analytic_line_actual_ids = fields.One2many(
+        'account.analytic.line',
+        'analytic_project_id',
+        domain=[('category', '=', 'actual')],
+        string='Analytic Lines (Actual)',
     )
