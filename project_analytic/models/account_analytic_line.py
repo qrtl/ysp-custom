@@ -27,5 +27,16 @@ class AccountAnalyticLine(models.Model):
 
     @api.multi
     def _set_account_id(self):
-        for line in self:
-            line.account_id = line.analytic_project_id.analytic_account_id.id
+        for ln in self:
+            ln.account_id = ln.analytic_project_id.analytic_account_id.id
+
+    @api.model
+    def create(self, vals):
+        # assumption: 'plan' is set when plan records are created through
+        # project form
+        if not vals.get('category'):
+            vals['category'] = 'actual'
+            # assumption: project_id is included only for timesheet entries
+            if vals.get('project_id'):
+                vals['analytic_type'] = 'labour'
+        return super(AccountAnalyticLine, self).create(vals)

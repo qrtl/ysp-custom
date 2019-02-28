@@ -15,9 +15,6 @@
         'account',
     ],
     "data": [
-        'data/analytic_type_data.xml',
-        'security/ir.model.access.csv',
-        'views/analytic_type_views.xml',
         'views/account_account_views.xml',
         'views/account_analytic_line_views.xml',
     ],

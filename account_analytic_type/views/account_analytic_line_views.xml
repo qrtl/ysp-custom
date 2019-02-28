@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="analytic.view_account_analytic_line_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='account_id']" position="after">
-                <field name="analytic_type_id" readonly="0"/>
+                <field name="analytic_type" readonly="0"/>
                 <field name="category"/>
             </xpath>
         </field>
@@ -20,7 +20,7 @@
                ref="analytic.view_account_analytic_line_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date']" position="after">
-                <field name="analytic_type_id" readonly="1"/>
+                <field name="analytic_type" readonly="1"/>
                 <field name="category"/>
             </xpath>
         </field>
@@ -35,7 +35,7 @@
                 <field name="account_id" type="row"/>
                 <field name="category" type="row"/>
                 <field name="date" interval="month" type="col"/>
-                <field name="analytic_type_id" type="col"/>
+                <field name="analytic_type" type="col"/>
                 <field name="amount" type="measure"/>
             </pivot>
         </field>
@@ -47,13 +47,13 @@
         <field name="inherit_id" ref="analytic.view_account_analytic_line_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
-                <filter string="Sales" name="sales" domain="[('related_analytic_type','=','sales')]"/>
-                <filter string="Labour" name="labour" domain="[('related_analytic_type','=','labour')]"/>
-                <filter string="Packaging Materials" name="pack_mat" domain="[('related_analytic_type','=','pack_mat')]"/>
-                <filter string="Outsourcing" name="outsourcing" domain="[('related_analytic_type','=','outsourcing')]"/>
-                <filter string="Logistics" name="logistics" domain="[('related_analytic_type','=','logistics')]"/>
-                <filter string="Expenses" name="expenses" domain="[('related_analytic_type','=','expenses')]"/>
-                <filter string="Other" name="other" domain="[('related_analytic_type','=','other')]"/>
+                <filter string="Sales" name="sales" domain="[('analytic_type','=','sales')]"/>
+                <filter string="Labour" name="labour" domain="[('analytic_type','=','labour')]"/>
+                <filter string="Packaging Materials" name="pack_mat" domain="[('analytic_type','=','pack_mat')]"/>
+                <filter string="Outsourcing" name="outsourcing" domain="[('analytic_type','=','outsourcing')]"/>
+                <filter string="Logistics" name="logistics" domain="[('analytic_type','=','logistics')]"/>
+                <filter string="Expenses" name="expenses" domain="[('analytic_type','=','expenses')]"/>
+                <filter string="Other" name="other" domain="[('analytic_type','=','other')]"/>
                 <separator/>
                 <filter string="Plan" name="plan" domain="[('category','=','plan')]"/>
                 <filter string="Actual" name="actual" domain="[('category','=','actual')]"/>
@@ -66,7 +66,7 @@
                         domain="[('date','&gt;=',(context_today()-relativedelta(days=90)).strftime('%%Y-%%m-%%d'))]"/>
             </xpath>
             <xpath expr="//field[@name='name']" position="after">
-                <field name="analytic_type_id"/>
+                <field name="analytic_type"/>
             </xpath>
         </field>
     </record>
