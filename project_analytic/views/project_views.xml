@@ -10,7 +10,7 @@
                 <page name="analytic_lines" string="Analytic Lines">
                     <group>
                         <group string="Sales (Plan)" name="plan_sales">
-                            <field name="analytic_line_plan_sales_ids" nolabel="1" context="{'default_analytic_type':'sales','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                            <field name="analytic_line_plan_sales_ids" nolabel="1" context="{'default_analytic_type':'10_sales','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
                                     string="Sales (Plan)"
                                     editable="bottom"
@@ -45,7 +45,7 @@
                             </field>
                         </group>
                         <group string="Labour (Plan)" name="plan_labour">
-                            <field name="analytic_line_plan_labour_ids" nolabel="1" context="{'default_analytic_type':'labour','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                            <field name="analytic_line_plan_labour_ids" nolabel="1" context="{'default_analytic_type':'20_labour','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
                                     string="Labour (Plan)"
                                     editable="bottom"
@@ -80,7 +80,7 @@
                             </field>
                         </group>
                         <group string="Packaging Materials (Plan)" name="plan_pack_mat">
-                            <field name="analytic_line_plan_pack_mat_ids" nolabel="1" context="{'default_analytic_type':'pack_mat','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                            <field name="analytic_line_plan_pack_mat_ids" nolabel="1" context="{'default_analytic_type':'30_pack_mat','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
                                     string="Packaging Materials (Plan)"
                                     editable="bottom"
@@ -115,7 +115,7 @@
                             </field>
                         </group>
                         <group string="Outsourcing (Plan)" name="plan_outsourcing">
-                            <field name="analytic_line_plan_outsourcing_ids" nolabel="1" context="{'default_analytic_type':'outsourcing','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                            <field name="analytic_line_plan_outsourcing_ids" nolabel="1" context="{'default_analytic_type':'40_outsourcing','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
                                     string="Outsourcing (Plan)"
                                     editable="bottom"
@@ -150,7 +150,7 @@
                             </field>
                         </group>
                         <group string="Logistics (Plan)" name="plan_logistics">
-                            <field name="analytic_line_plan_logistics_ids" nolabel="1" context="{'default_analytic_type':'logistics','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                            <field name="analytic_line_plan_logistics_ids" nolabel="1" context="{'default_analytic_type':'50_logistics','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
                                     string="Logistics (Plan)"
                                     editable="bottom"
@@ -185,7 +185,7 @@
                             </field>
                         </group>
                         <group string="Expenses (Plan)" name="plan_expenses">
-                            <field name="analytic_line_plan_expenses_ids" nolabel="1" context="{'default_analytic_type':'expenses','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
+                            <field name="analytic_line_plan_expenses_ids" nolabel="1" context="{'default_analytic_type':'60_expenses','default_category':'plan','default_account_id':analytic_account_id,'default_unit_amount':1.0,'default_name':'/'}">
                                 <tree
                                     string="Expenses (Plan)"
                                     editable="bottom"

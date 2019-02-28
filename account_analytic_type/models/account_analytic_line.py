@@ -4,13 +4,13 @@
 from odoo import models, fields, api
 
 ANALYTIC_TYPE_SELECTION = [
-        ('sales', 'Sales'),
-        ('labour', 'Labour'),
-        ('pack_mat', 'Packaging Materials'),
-        ('outsourcing', 'Outsourcing'),
-        ('logistics', 'Logistics'),
-        ('expenses', 'Expenses'),
-        ('other', 'Other')]
+        ('10_sales', 'Sales'),
+        ('20_labour', 'Labour'),
+        ('30_pack_mat', 'Packaging Materials'),
+        ('40_outsourcing', 'Outsourcing'),
+        ('50_logistics', 'Logistics'),
+        ('60_expenses', 'Expenses'),
+        ('70_other', 'Other')]
 
 
 class AccountAnalyticLine(models.Model):
