@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_analytic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-28 13:10+0000\n"
+"PO-Revision-Date: 2019-02-28 13:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_analytic
+#: model:ir.model,name:project_analytic.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "分析行"
+
+#. module: project_analytic
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Analytic Lines"
+msgstr "分析行"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_actual_expenses_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Expenses (Actual)"
+msgstr "販管費(実績)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_plan_expenses_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Expenses (Plan)"
+msgstr "販管費(予定)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_actual_labour_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Labour (Actual)"
+msgstr "労務費(実績)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_plan_labour_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Labour (Plan)"
+msgstr "労務費(予定)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_actual_logistics_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Logistics (Actual)"
+msgstr "物流費(実績)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_plan_logistics_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Logistics (Plan)"
+msgstr "物流費(予定)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_actual_outsourcing_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Outsourcing (Actual)"
+msgstr "外注費(実績)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_plan_outsourcing_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Outsourcing (Plan)"
+msgstr "外注費(予定)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_actual_pack_mat_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Packaging Materials (Actual)"
+msgstr "梱包資材費(実績)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_plan_pack_mat_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Packaging Materials (Plan)"
+msgstr "梱包資材費(予定)"
+
+#. module: project_analytic
+#: model:ir.model,name:project_analytic.model_project_project
+msgid "Project"
+msgstr "プロジェクト"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_account_analytic_line__analytic_project_id
+msgid "Related Project"
+msgstr "関連プロジェクト"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_actual_sales_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Sales (Actual)"
+msgstr "売上(実績)"
+
+#. module: project_analytic
+#: model:ir.model.fields,field_description:project_analytic.field_project_project__analytic_line_plan_sales_ids
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Sales (Plan)"
+msgstr "売上(予定)"
+
+#. module: project_analytic
+#: model_terms:ir.ui.view,arch_db:project_analytic.edit_project
+msgid "Total"
+msgstr "合計"
