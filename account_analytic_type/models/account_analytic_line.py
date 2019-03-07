@@ -40,10 +40,8 @@ class AccountAnalyticLine(models.Model):
         if not vals.get('category') == 'plan':
             vals['category'] = 'actual'
             if vals.get('general_account_id') and not vals.get(
-                    'analytic_type_id'):
+                    'analytic_type'):
                 account = self.env['account.account'].browse(
                     vals['general_account_id'])
-                analytic_type = account.analytic_type_id
-                vals['analytic_type_id'] = analytic_type and analytic_type.id \
-                                           or False
+                vals['analytic_type'] = account.analytic_type
         return super(AccountAnalyticLine, self).create(vals)
