@@ -23,6 +23,31 @@ class AccountAnalyticLine(models.Model):
         store=True,
         readonly=True,
     )
+    team_id = fields.Many2one(
+        related='sale_id.team_id',
+        store=True,
+        readonly=True,
+    )
+    sale_user_id = fields.Many2one(
+        related='sale_id.user_id',
+        store=True,
+        readonly=True,
+    )
+    # this overrides the standard employee_id field to add compute method
+    employee_id = fields.Many2one(
+        # 'hr.employee',
+        # string='Employee',
+        compute='_compute_employee_id',
+        store=True,
+        readonly=True,
+    )
+    department_id = fields.Many2one(
+        'hr.department',
+        string='Department',
+        compute='_compute_employee_id',
+        store=True,
+        readonly=True,
+    )
 
 
     @api.multi
@@ -38,6 +63,16 @@ class AccountAnalyticLine(models.Model):
                  ('state', '!=', 'cancel')])
             if len(sale_orders) == 1:
                 ln.sale_id = sale_orders[0].id
+
+    @api.multi
+    @api.depends('user_id')
+    def _compute_employee_id(self):
+        for ln in self:
+            emp_ids = self.env['hr.employee'].search(
+                [('user_id', '=', ln.user_id.id)])
+            if emp_ids:
+                ln.employee_id = emp_ids[0]
+                ln.department_id = emp_ids[0].department_id
 
     @api.multi
     def _set_account_id(self):
