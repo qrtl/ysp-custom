@@ -14,9 +14,10 @@ project
     "installable": True,
     "depends": [
         'account_analytic_type',
-        'project',
+        'sale_timesheet',
     ],
     "data": [
         'views/project_views.xml',
+        'views/account_analytic_line_views.xml',
     ],
 }
