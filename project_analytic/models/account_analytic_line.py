@@ -42,9 +42,7 @@ class AccountAnalyticLine(models.Model):
         readonly=True,
     )
     department_id = fields.Many2one(
-        'hr.department',
-        string='Department',
-        compute='_compute_employee_id',
+        related='employee_id.department_id',
         store=True,
         readonly=True,
     )
@@ -77,7 +75,6 @@ class AccountAnalyticLine(models.Model):
                 [('user_id', '=', ln.user_id.id)])
             if emp_ids:
                 ln.employee_id = emp_ids[0]
-                ln.department_id = emp_ids[0].department_id
 
     @api.multi
     def _set_account_id(self):
