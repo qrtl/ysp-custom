@@ -46,13 +46,13 @@
         <field name="inherit_id" ref="analytic.view_account_analytic_line_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
-                <filter string="Sales" name="sales" domain="[('analytic_type','=','sales')]"/>
-                <filter string="Labour" name="labour" domain="[('analytic_type','=','labour')]"/>
-                <filter string="Packaging Materials" name="pack_mat" domain="[('analytic_type','=','pack_mat')]"/>
-                <filter string="Outsourcing" name="outsourcing" domain="[('analytic_type','=','outsourcing')]"/>
-                <filter string="Logistics" name="logistics" domain="[('analytic_type','=','logistics')]"/>
-                <filter string="Expenses" name="expenses" domain="[('analytic_type','=','expenses')]"/>
-                <filter string="Other" name="other" domain="[('analytic_type','=','other')]"/>
+                <filter string="Sales" name="sales" domain="[('analytic_type','=','10_sales')]"/>
+                <filter string="Labour" name="labour" domain="[('analytic_type','=','20_labour')]"/>
+                <filter string="Packaging Materials" name="pack_mat" domain="[('analytic_type','=','30_pack_mat')]"/>
+                <filter string="Outsourcing" name="outsourcing" domain="[('analytic_type','=','40_outsourcing')]"/>
+                <filter string="Logistics" name="logistics" domain="[('analytic_type','=','50_logistics')]"/>
+                <filter string="Expenses" name="expenses" domain="[('analytic_type','=','60_expenses')]"/>
+                <filter string="Other" name="other" domain="[('analytic_type','=','70_other')]"/>
                 <separator/>
                 <filter string="Plan" name="plan" domain="[('category','=','plan')]"/>
                 <filter string="Actual" name="actual" domain="[('category','=','actual')]"/>
@@ -66,6 +66,10 @@
             </xpath>
             <xpath expr="//field[@name='name']" position="after">
                 <field name="analytic_type"/>
+            </xpath>
+            <xpath expr="//filter[@name='account_id']" position="after">
+                <filter string="Analytic Type" context="{'group_by':'analytic_type'}" name="analytic_type"/>
+                <filter string="Category" context="{'group_by':'category'}" name="category"/>
             </xpath>
         </field>
     </record>
