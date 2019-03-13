@@ -48,6 +48,11 @@ class AccountAnalyticLine(models.Model):
         store=True,
         readonly=True,
     )
+    product_categ_id = fields.Many2one(
+        related='product_id.categ_id',
+        store=True,
+        readonly=True,
+    )
 
 
     @api.multi
